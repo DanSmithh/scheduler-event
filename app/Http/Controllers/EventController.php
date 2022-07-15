@@ -3,20 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Event;
+use App\Models\Event;
 
 class EventController extends Controller
 {
    public function index(Request $request){
        $events = new Event();
 
-       $from = $request->from;
-       $to = $request->to;
+    //    $from = $request->from;
+    //    $to = $request->to;
 
        return response()->json([
-           "data" => $events->
-               where("start_date", "<", $to)->
-               where("end_date", ">=", $from)->get()
+           "data" => $events->get()
+            //    where("start_date", "<", $to)->
+            //    where("end_date", ">=", $from)->
+
        ]);
    }
 
@@ -36,6 +37,12 @@ class EventController extends Controller
         "action"=> "inserted",
         "tid" => $event->id
     ]);
+}
+
+public function show($id, Request $request){
+    $event = Event::findOrFail($id);
+
+    return response()->json([$event]);
 }
 
 public function update($id, Request $request){

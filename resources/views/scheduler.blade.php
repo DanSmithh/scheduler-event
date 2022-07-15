@@ -32,7 +32,7 @@
 scheduler.config.date_format = "%Y-%m-%d %H:%i:%s";
 scheduler.setLoadMode("day");
 
-scheduler.init("scheduler_here", new Date(2018, 11, 3), "week");
+scheduler.init("scheduler_here", new Date(2022, 7, 0), "week");
 
 scheduler.load("/api/events", "json");
 var dp = scheduler.createDataProcessor("/api/events");
@@ -45,6 +45,6 @@ dp.setTransactionMode("REST");
         });
 
         scheduler.config.date_format = "%Y-%m-%d %H:%i:%s";
-        scheduler.init("scheduler_here", new Date(2018, 11, 3), "week");
+        scheduler.init("scheduler_here", new Date(2022, 7, 0), "week");
     </script>
 </body>
